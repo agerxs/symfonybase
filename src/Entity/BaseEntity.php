@@ -4,9 +4,11 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Security\Core\User\User as User;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\BaseEntityRepository")
+ * @ORM\MappedSuperclass()
  */
 class BaseEntity
 {
@@ -35,21 +37,21 @@ class BaseEntity
     private $deletedAt;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User")
+     * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumn(name="created_by", referencedColumnName="id")
      * @Gedmo\Blameable(on="create")
      */
     private $createdBy;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User")
+     * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumn(name="updated_by", referencedColumnName="id")
      * @Gedmo\Blameable(on="update")
      */
     private $updatedBy;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User")
+     * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumn(name="deleted_by", referencedColumnName="id")
      */
     private $deletedBy;
