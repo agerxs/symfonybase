@@ -1,0 +1,18 @@
+knp_gaufrette:
+  stream_wrapper: ~
+    #protocol: gaufrette
+    #filesystems: [store_photos]
+  adapters:
+    adapter_store_photos:
+      aws_s3:
+        service_id: 'acme.aws_s3.client'
+        bucket_name: 'trust-ea'
+        #detect_content_type: true
+        options:
+          directory: 'mobility'
+          create: true
+
+  filesystems:
+    filesystem_store_photos:
+      adapter: adapter_store_photos
+      alias: store_photos_fs
