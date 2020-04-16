@@ -7,17 +7,10 @@ use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Security\Core\User\User as User;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\BaseEntityRepository")
  * @ORM\MappedSuperclass()
  */
 class BaseEntity
 {
-    /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
-     */
-    private $id;
 
     /**
      * @ORM\Column(type="datetime", name="created_at")
